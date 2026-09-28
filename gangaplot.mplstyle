@@ -1,69 +1,69 @@
-figure.facecolor: white
-figure.edgecolor: white
-figure.dpi: 300             # Higher DPI for sharper output
-savefig.dpi: 300
-savefig.format: png         # Or 'pdf', 'eps' for vector graphics
-savefig.bbox: tight         # Prevent cutting off elements
+# gangaplot, at the size the paper uses: a 2x2 grid of ~1 in panels drawn at
+# \columnwidth (246 pt) and included unscaled.  A reconstruction of the lost
+# original style; strokes are the original's scaled to the panel, floored so
+# they stay black rather than grey, and text is absolute (6 pt ticks, 10 pt
+# labels, the body text size).
+#
+# Every value here is the one the figures of "When energy isn't enough" are
+# drawn with, so plt.style.use("gangaplot") alone reproduces them.  The layout
+# (panel grid, horizontal y labels, panel letters, shared legend) is not an
+# rcParam: see STYLE.md.
 
-# --- Axes Settings ---
-axes.facecolor: white
-axes.edgecolor: black
-axes.linewidth: 1.0         # Axis line thickness
-axes.grid: False            # No grid lines
-axes.axisbelow: True        # Grid lines appear below plot elements
-axes.labelcolor: black
-axes.labelsize: 14          # Size of x and y axis labels
-axes.titlesize: 14          # Size of plot title
+text.usetex:          True
+font.family:          serif
+font.serif:           Computer Modern Roman
+text.latex.preamble:  \usepackage{amsmath}\usepackage{amssymb}\usepackage{braket}
+font.size:            10
+axes.labelsize:       10
+axes.titlesize:       7
+xtick.labelsize:      6
+ytick.labelsize:      6
+legend.fontsize:      8
 
-# --- Tick Settings ---
-xtick.direction: out        # Ticks point outwards
-ytick.direction: out        # Ticks point outwards
-xtick.major.size: 5.0       # Length of major x-ticks
-ytick.major.size: 5.0       # Length of major y-ticks
-xtick.minor.size: 3.0       # Length of minor x-ticks
-ytick.minor.size: 3.0       # Length of minor y-ticks
-xtick.major.width: 1.0      # Thickness of major x-ticks (slightly thicker than axis?)
-ytick.major.width: 1.0      # Thickness of major y-ticks
-xtick.minor.width: 0.8      # Thickness of minor x-ticks (slightly thinner)
-ytick.minor.width: 0.8      # Thickness of minor y-ticks
-xtick.color: black
-ytick.color: black
-xtick.labelsize: 12         # Size of x-tick labels
-ytick.labelsize: 12         # Size of y-tick labels
-xtick.top: True             # Show ticks on the top x-axis
-ytick.right: True           # Show ticks on the right y-axis
+# Series: good (blue, square) then poor (purple, diamond), gnuplot2's dark blue
+# and light purple; then gnuplot2's pink and gold for a third and fourth.
+axes.prop_cycle: cycler('color', ['0000a8', 'c92ad5', 'ff5ca3', 'ffc23d']) + cycler('marker', ['s', 'D', 'o', 'v'])
+# A bare line is the exact/theory curve: black dashed at 1.25x this width.
+lines.linewidth:       0.55
+lines.linestyle:       --
+# Run markers are hollow, at this size and edge width.
+lines.markersize:      2.4
+lines.markeredgewidth: 0.6787
+markers.fillstyle:     none
+axes.linewidth:        0.7
+axes.grid:             False
+axes.axisbelow:        True
+axes.formatter.use_mathtext: True
 
-# --- Line Settings ---
-lines.linewidth: 1.5        # Default line width (for curve fits, etc.)
-lines.markersize: 6.0       # Default marker size
+xtick.direction:      in
+xtick.top:            True
+xtick.bottom:         True
+xtick.minor.visible:  True
+xtick.major.size:     2.3
+xtick.minor.size:     1.25
+xtick.major.width:    0.45
+xtick.minor.width:    0.3
+xtick.major.pad:      1.6
+ytick.direction:      in
+ytick.left:           True
+ytick.right:          True
+ytick.minor.visible:  True
+ytick.major.size:     2.3
+ytick.minor.size:     1.25
+ytick.major.width:    0.45
+ytick.minor.width:    0.3
+ytick.major.pad:      1.6
 
-# --- Text Settings ---
-# Likely uses LaTeX for font rendering based on the look
-text.usetex: True
-# Font family to use with LaTeX. 'serif' often maps to Times New Roman or Computer Modern.
-font.family: serif
-# You might need to specify a specific font if 'serif' isn't what you want
-# font.serif: Times New Roman # Requires appropriate LaTeX package
-font.size: 12               # Default font size
+# One frameless legend above the grid.
+legend.frameon:        False
+legend.numpoints:      1
+legend.borderaxespad:  0.0
+legend.handlelength:   1.4
+legend.handletextpad:  0.4
+legend.columnspacing:  1.1
+legend.labelspacing:   0.5
 
-# --- Legend Settings ---
-legend.frameon: True        # Draw a box around the legend
-legend.edgecolor: black     # Color of the legend box edge
-legend.fancybox: False      # Don't use rounded corners
-legend.shadow: False        # No shadow
-legend.loc: upper left      # Position matching the example
-legend.fontsize: 12         # Font size in the legend
-
-# --- Patch Settings (used for legend box, etc.) ---
-patch.edgecolor: black
-patch.linewidth: 1.0
-
-# --- Grid Settings (disabled, but defining them anyway) ---
-grid.color: black
-grid.linestyle: -
-grid.linewidth: 0.8
-
-# SCATTER PLOT
-scatter.marker : .
-
-
+figure.facecolor:     white
+figure.dpi:           600
+savefig.dpi:          600
+savefig.facecolor:    white
